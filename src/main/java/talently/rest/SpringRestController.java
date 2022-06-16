@@ -44,6 +44,7 @@ public class SpringRestController {
 		return new ResponseEntity<String>("Basket was deleted sucessfully.", HttpStatus.OK);
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/addBasket", method = RequestMethod.POST)
 	public ResponseEntity<String> addProductBasket(@RequestBody Product product, HttpSession httpSession) {
 		if (product == null || product.getCode() == null || "".equals(product.getCode())) {
@@ -63,6 +64,7 @@ public class SpringRestController {
 		return new ResponseEntity<String>("Product was added sucessfully.", HttpStatus.OK);
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/totalBasket", method = RequestMethod.GET)
 	public ResponseEntity<String> getProductByid(HttpSession httpSession) {
 		Object ses = httpSession.getAttribute("basket");
